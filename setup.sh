@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-ansible-playbook -i hosts ./site.yml
+ansible-galaxy collection install community.general
+
+ansible-playbook -i hosts ./site.yml --ask-become-pass
