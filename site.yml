@@ -6,4 +6,5 @@
     - google-chrome
     - nodejs
     - docker
+    - docker-compose
     - ohmyzsh

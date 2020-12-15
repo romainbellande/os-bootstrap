@@ -2,7 +2,7 @@
 
 - name: check if ohmyzsh folder exists
   stat:
-    path: ~/.ohmyzsh
+    path: ~/.oh-my-zsh
   register: ohmyzsh_folder
 
 - name: download script
