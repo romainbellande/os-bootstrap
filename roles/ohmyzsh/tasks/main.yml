@@ -22,10 +22,10 @@
     repo: https://github.com/romkatv/powerlevel10k.git
     depth: 1
     dest: ~/.oh-my-zsh/themes/powerlevel10k
+  become_user: "{{ lookup('env', 'USER') }}"
 
 - name: replace zsh config
   copy:
     src: ../files/.zshrc
     dest: ~/.zshrc
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
+  become_user: "{{ lookup('env', 'USER') }}"

@@ -2,9 +2,12 @@
 - hosts: localhost
   connection: local
   roles:
+    - ohmyzsh
     - vscode
     - google-chrome
     - nodejs
     - docker
     - docker-compose
-    - ohmyzsh
+    - nvm
+    - aws-cli
+    - terraform
