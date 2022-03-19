@@ -24,7 +24,7 @@
     dest: ~/.config/i3/config
 
 - name: ensure Xinitrc is setup for i3
-  ansible.builtin.lineinfile:
+  lineinfile:
     path: ~/.xinitrc
     line: exec i3
     state: present
