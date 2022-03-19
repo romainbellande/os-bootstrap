@@ -2,7 +2,7 @@
 
 - name: install
   become: true
-  community.general.pacman:
+  pacman:
     name:
       - nodejs
       - npm

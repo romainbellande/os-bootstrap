@@ -2,26 +2,47 @@
 
 - name: install
   become: true
-  community.general.pacman:
+  pacman:
     name: i3-wm
     state: present
 
 - name: install font-awesome
   become: true
-  community.general.pacman:
+  pacman:
     name: ttf-font-awesome
     state: present
 
 - name: install i3status-rust
   become: true
-  community.general.pacman:
+  pacman:
     name: i3status-rust
     state: present
+
+- name: install dmenu
+  become: true
+  pacman:
+    name: dmenu
+    state: present
+
+- name: ensure i3 directory exists
+  file:
+    path: "~/.config/i3"
+    state: directory
 
 - name: set config
   copy:
     src: config
     dest: ~/.config/i3/config
+
+- name: ensure i3 status directory exists
+  file:
+    path: "~/.config/i3status-rust"
+    state: directory
+
+- name: copy i3 status config
+  copy:
+    src: i3status/config.toml
+    dest: ~/.config/i3status-rust/config.toml
 
 - name: ensure Xinitrc is setup for i3
   lineinfile:

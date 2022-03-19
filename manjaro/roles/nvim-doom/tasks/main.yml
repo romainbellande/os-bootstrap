@@ -2,7 +2,7 @@
 
 - name: install dependencies
   become: true
-  community.general.pacman:
+  pacman:
     name:
       - git
       - ripgrep

@@ -3,7 +3,5 @@
 - name: install
   become: true
   pacman:
-    name:
-      - docker
-      - docker-compose
+    name: guake
     state: present

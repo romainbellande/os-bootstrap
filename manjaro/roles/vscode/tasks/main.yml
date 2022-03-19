@@ -1,9 +1,15 @@
 ---
 
 - name: install
-  community.general.pacman:
+  become: true
+  pacman:
     name: vscode
     state: present
+
+- name: ensure settings directory exists
+  file:
+    path: "~/.config/Code - OSS/User/settings.json"
+    state: directory
 
 - name: copy settings preset
   copy:

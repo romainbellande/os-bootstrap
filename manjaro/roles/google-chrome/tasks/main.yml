@@ -7,7 +7,8 @@
 - name: install
   block:
     - name: install requirements
-      community.general.pacman:
+      become: true
+      pacman:
         name:
           - git
           - base-devel

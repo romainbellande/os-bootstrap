@@ -1,11 +1,11 @@
 ---
 
 - name: install
-  community.general.pacman:
+  pacman:
     name: zsh
 
 - name: set zsh as default shell
-  become: false
+  become: true 
   user:
     name: "{{ lookup('env', 'USER') }}"
     shell: /bin/zsh

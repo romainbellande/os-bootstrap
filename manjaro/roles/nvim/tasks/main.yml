@@ -1,6 +1,5 @@
 ---
 
 - name: install
-  become: true
   command:
     cmd: yay -aS --noconfirm --answerdiff=None neovim-nightly-bin 

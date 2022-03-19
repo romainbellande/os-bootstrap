@@ -1,6 +1,7 @@
 ---
 
 - name: install
-  community.general.pacman:
+  become: true
+  pacman:
     name: yay
     state: present
