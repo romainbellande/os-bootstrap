@@ -1,0 +1,13 @@
+---
+
+- name: create share font folder
+  become: true
+  ansible.builtin.file:
+    path: /usr/local/share/fonts
+    state: directory
+
+- name: install
+  become: true
+  copy:
+    src: "Fira Code Regular Nerd Font Complete.ttf"
+    dest: /usr/local/share/fonts/

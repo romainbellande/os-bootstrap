@@ -1,0 +1,16 @@
+---
+
+- name: install dependencies
+  become: true
+  community.general.pacman:
+    name:
+      - git
+      - ripgrep
+      - fd
+      - ttf-fira-code
+    state: present
+
+- name: install
+  git:
+    repo: https://github.com/romainbellande/nvim.git
+    dest: ~/.config/nvim

@@ -2,6 +2,5 @@
 
 - name: install
   become: true
-  community.general.pacman:
-    name: neovim
-    state: present
+  command:
+    cmd: yay -aS --noconfirm --answerdiff=None neovim-nightly-bin 

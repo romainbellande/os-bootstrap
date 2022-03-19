@@ -1,0 +1,6 @@
+---
+
+dependencies:
+  - role: nvim
+  - role: nodejs
+  - role: fira-code-fonts

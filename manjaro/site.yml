@@ -9,4 +9,6 @@
     - docker
     - nvm
     - aws-cli
+    - kubectl
     - terraform
+    - nvim-doom
