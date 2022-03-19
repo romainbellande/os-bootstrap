@@ -4,6 +4,10 @@
 
 `./install-ansible.sh`
 
+## Execute script
+
+`./setup.sh`
+
 ## available tasks
 
 * visual studio code

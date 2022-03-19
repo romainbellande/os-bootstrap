@@ -1,0 +1,30 @@
+---
+
+- name: install
+  become: true
+  community.general.pacman:
+    name: i3-wm
+    state: present
+
+- name: install font-awesome
+  become: true
+  community.general.pacman:
+    name: ttf-font-awesome
+    state: present
+
+- name: install i3status-rust
+  become: true
+  community.general.pacman:
+    name: i3status-rust
+    state: present
+
+- name: set config
+  copy:
+    src: config
+    dest: ~/.config/i3/config
+
+- name: ensure Xinitrc is setup for i3
+  ansible.builtin.lineinfile:
+    path: ~/.xinitrc
+    line: exec i3
+    state: present

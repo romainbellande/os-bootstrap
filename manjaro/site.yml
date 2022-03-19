@@ -12,3 +12,5 @@
     - kubectl
     - terraform
     - nvim-doom
+    - imagemagick
+    - i3
