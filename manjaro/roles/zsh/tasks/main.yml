@@ -1,11 +1,11 @@
 ---
 
 - name: install
-  apt:
+  community.general.pacman:
     name: zsh
-    update_cache: yes
 
 - name: set zsh as default shell
+  become: false
   user:
     name: "{{ lookup('env', 'USER') }}"
     shell: /bin/zsh

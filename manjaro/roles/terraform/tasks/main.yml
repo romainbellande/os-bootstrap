@@ -1,16 +1,7 @@
 ---
 
-- name: add repository key
-  apt_key:
-    url: https://apt.releases.hashicorp.com/gpg
-
-- name: add repository
-  apt_repository:
-    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
-    state: present
-    update_cache: yes
-
 - name: install
-  apt:
+  become: true
+  community.general.pacman:
     name: terraform
     state: present

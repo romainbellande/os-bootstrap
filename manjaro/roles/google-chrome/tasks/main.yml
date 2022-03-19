@@ -1,5 +1,31 @@
 ---
+- name: check is google-chrome installed
+  shell: command -v google-chrome-stable >/dev/null 2>&1
+  register: is_google_chrome_exists
+  ignore_errors: yes
 
-- name: install google chrome
-  apt:
-    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+- name: install
+  block:
+    - name: install requirements
+      community.general.pacman:
+        name:
+          - git
+          - base-devel
+        state: present
+
+    - name: clone repository
+      git:
+        repo: https://aur.archlinux.org/google-chrome.git
+        dest: /tmp/google-chrome
+
+    - name: make
+      command:
+        chdir: /tmp/google-chrome
+        cmd: makepkg -si --noconfirm --needed --noprogressbar
+
+    - name: remove tmp directory
+      file:
+        path: /tmp/google-chrome
+        state: absent
+
+  when: is_google_chrome_exists.rc != 0

@@ -1,14 +1,14 @@
 ---
 
-- name: install vscode
-  community.general.snap:
-    name: code
-    classic: yes
+- name: install
+  community.general.pacman:
+    name: vscode
+    state: present
 
 - name: copy settings preset
   copy:
-    src: ../files/settings.json
+    src: settings.json
     mode: 664
-    dest: ~/.zshrc
+    dest: "~/.config/Code - OSS/User/settings.json"
     owner: "{{ lookup('env', 'USER') }}"
     group: "{{ lookup('env', 'USER') }}"

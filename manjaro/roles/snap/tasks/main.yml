@@ -1,7 +1,0 @@
----
-
-- name: install snap
-  apt:
-    name: snapd
-    update_cache: true
-

@@ -3,7 +3,5 @@
 - name: install
   become: true
   community.general.pacman:
-    name:
-      - nodejs
-      - npm
+    name: neovim
     state: present

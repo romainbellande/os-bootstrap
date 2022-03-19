@@ -1,0 +1,31 @@
+---
+
+- name: create share font folder
+  become: true
+  ansible.builtin.file:
+    path: /usr/local/share/fonts
+    state: directory
+
+- name: install regular
+  become: true
+  copy:
+    src: "MesloLGS NF Regular.ttf"
+    dest: /usr/local/share/fonts/
+
+- name: install bold italic
+  become: true
+  copy:
+    src: "MesloLGS NF Bold Italic.ttf"
+    dest: /usr/local/share/fonts/
+
+- name: install bold
+  become: true
+  copy:
+    src: "MesloLGS NF Bold.ttf"
+    dest: /usr/local/share/fonts/
+
+- name: install italic
+  become: true
+  copy:
+    src: "MesloLGS NF Italic.ttf"
+    dest: /usr/local/share/fonts/

@@ -1,1 +1,1 @@
-localhost ansible_become=true
+localhost

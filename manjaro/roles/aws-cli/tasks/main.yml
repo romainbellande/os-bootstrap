@@ -12,9 +12,11 @@
     remote_src: yes
 
 - name: execute installer
+  become: true
   shell: /tmp/aws/install
   when: not aws_cli_path.stat.exists
 
 - name: update existing installer
+  become: true
   shell: /tmp/aws/install --update
   when: aws_cli_path.stat.exists

@@ -1,9 +1,6 @@
 ---
 
 - name: install
-  become: true
   community.general.pacman:
-    name:
-      - nodejs
-      - npm
+    name: yay
     state: present
