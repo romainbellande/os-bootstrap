@@ -1,0 +1,7 @@
+{
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "terminal.external.linuxExec": "/bin/zsh",
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "editor.tabSize": 2
+}

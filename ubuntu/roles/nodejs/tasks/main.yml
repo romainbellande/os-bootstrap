@@ -1,0 +1,25 @@
+---
+
+- name: add repository key
+  apt_key:
+    url: "{{ item }}"
+  with_items:
+    - "http://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+    - "https://dl.yarnpkg.com/debian/pubkey.gpg"
+
+- name: add repository
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+    - "deb http://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main"
+    - "deb-src http://deb.nodesource.com/node_14.x {{ ansible_distribution_release }} main"
+    - "deb https://dl.yarnpkg.com/debian/ stable main"
+
+- name: install
+  apt:
+    name:
+      - nodejs
+      - yarn
+    state: "present"

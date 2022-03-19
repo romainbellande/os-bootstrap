@@ -1,0 +1,20 @@
+---
+
+- name: check if already installed
+  stat:
+    path: /usr/local/bin/aws
+  register: aws_cli_path
+
+- name: download and unzip installer
+  unarchive:
+    src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: execute installer
+  shell: /tmp/aws/install
+  when: not aws_cli_path.stat.exists
+
+- name: update existing installer
+  shell: /tmp/aws/install --update
+  when: aws_cli_path.stat.exists

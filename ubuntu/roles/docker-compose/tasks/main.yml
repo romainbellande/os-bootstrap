@@ -1,0 +1,27 @@
+---
+
+- name: get kernel name
+  shell: uname -s
+  register: kernel
+
+- name: get machine hardware name
+  shell: uname -m
+  register: machine
+
+- name: download installation script
+  uri:
+    url: "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-{{ kernel.stdout }}-{{ machine.stdout }}"
+    dest: /usr/local/bin/docker-compose
+    mode: +x
+    status_code:
+      - 200
+      - 304
+
+- name: get docker-compose version
+  shell: docker-compose --version
+  register: docker_compose_version
+
+
+- name: display docker-compose version
+  debug:
+    msg: "docker-compose verson: {{ docker_compose_version.stdout }}"

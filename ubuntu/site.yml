@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    # - ohmyzsh
+    - vscode
+    - google-chrome
+    - nodejs
+    - docker
+    - docker-compose
+    - nvm
+    - aws-cli
+    - terraform
