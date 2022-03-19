@@ -1,0 +1,7 @@
+---
+
+- name: install
+  become: true
+  community.general.pacman:
+    name: steam
+    state: present
