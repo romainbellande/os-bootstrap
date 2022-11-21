@@ -1,5 +1,17 @@
 ---
 
+- name: ensure loop module is added
+  become: true
+  lineinfile:
+    path: /etc/modules-load.d/loop.conf
+    line: loop
+    state: present
+
+- name: enable modprob
+  become: true
+  command:
+    cmd: modprobe loop
+
 - name: install
   become: true
   pacman:
@@ -7,3 +19,16 @@
       - docker
       - docker-compose
     state: present
+
+- name: add user to docker group
+  become: true
+  user:
+    name: "{{ lookup('env', 'USER') }}"
+    group: docker
+    append: yes
+
+- name: auto start docker
+  systemd:
+    state: started
+    name: docker.service
+    enabled: yes

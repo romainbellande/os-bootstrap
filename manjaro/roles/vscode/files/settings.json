@@ -1,8 +1,21 @@
 {
+    "editor.inlineSuggest.enabled": true,
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "terminal.external.linuxExec": "/bin/zsh",
     "terminal.integrated.shell.linux": "/bin/zsh",
     "editor.tabSize": 2,
-    "editor.fontFamily": "MesloLGS NF"
+    "editor.fontFamily": "MesloLGS NF",
+    "rust-analyzer.diagnostics.disabled": [
+        "unresolved-import",
+        "macro-error",
+        "unresolved-macro-call"
+    ],
+    "rust-analyzer.cargo.runBuildScripts": true,
+    "rust-analyzer.experimental.procAttrMacros": false,
+    "rust-analyzer.procMacro.enable": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "rust-analyzer.cargo.unsetTest": [
+        "derivative"
+    ]
 }

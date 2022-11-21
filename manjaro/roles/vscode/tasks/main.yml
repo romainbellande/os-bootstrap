@@ -8,13 +8,18 @@
 
 - name: ensure settings directory exists
   file:
-    path: "~/.config/Code - OSS/User/settings.json"
+    path: "~/.config/Code - OSS/User"
     state: directory
+
+- name: check if settings.json exits
+  stat:
+    path: "~/.config/Code - OSS/User/settings.json"
+  register: settings_result
 
 - name: copy settings preset
   copy:
     src: settings.json
-    mode: 664
     dest: "~/.config/Code - OSS/User/settings.json"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
+    backup: yes
+    mode: '0660'
+  when: not settings_result.stat.exists

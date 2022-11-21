@@ -11,9 +11,11 @@
     - aws-cli
     - kubectl
     - terraform
-    - nvim-doom
     - imagemagick
     - i3
     - redshift
     - steam
     - guake
+    - postman
+    - rust
+    - lazygit

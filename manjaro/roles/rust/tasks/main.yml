@@ -1,0 +1,13 @@
+---
+
+- name: install
+  become: true
+  pacman:
+    name: rustup
+    state: present
+
+- name: ensure cargo will find binaries
+  lineinfile:
+    path: ~/.zshrc
+    line: export PATH="${PATH}:${HOME}/.cargo/bin"
+    state: present

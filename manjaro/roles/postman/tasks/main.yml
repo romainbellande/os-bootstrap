@@ -1,0 +1,11 @@
+---
+
+- name: install
+  git:
+    repo: https://aur.archlinux.org/postman-bin.git
+    dest: /tmp/postman
+
+- name: make
+  command:
+    chdir: /tmp/postman
+    cmd: makepkg -si --noconfirm --needed --noprogressbar

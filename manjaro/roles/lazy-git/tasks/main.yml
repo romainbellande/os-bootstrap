@@ -1,0 +1,7 @@
+---
+
+- name: install
+  become: true
+  pacman:
+    name: lazygit
+    state: present

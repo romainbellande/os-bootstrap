@@ -7,3 +7,18 @@
       - nodejs
       - npm
     state: present
+
+- name: create npm packages folder
+  file:
+    path: ~/.npm-packages
+    state: directory
+
+- name: set new npm packages folder as default
+  command:
+    cmd: npm config set prefix ~/.npm-packages
+
+- name: ensure npm will find binaries
+  lineinfile:
+    path: ~/.zshrc
+    line: export PATH="${PATH}:${HOME}/.npm-packages/bin"
+    state: present
