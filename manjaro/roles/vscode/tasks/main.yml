@@ -6,20 +6,20 @@
     name: vscode
     state: present
 
-- name: ensure settings directory exists
-  file:
-    path: "~/.config/Code - OSS/User"
-    state: directory
+# - name: ensure settings directory exists
+#   file:
+#     path: "~/.config/Code - OSS/User"
+#     state: directory
 
-- name: check if settings.json exits
-  stat:
-    path: "~/.config/Code - OSS/User/settings.json"
-  register: settings_result
+# - name: check if settings.json exits
+#   stat:
+#     path: "~/.config/Code - OSS/User/settings.json"
+#   register: settings_result
 
-- name: copy settings preset
-  copy:
-    src: settings.json
-    dest: "~/.config/Code - OSS/User/settings.json"
-    backup: yes
-    mode: '0660'
-  when: not settings_result.stat.exists
+# - name: copy settings preset
+#   copy:
+#     src: settings.json
+#     dest: "~/.config/Code - OSS/User/settings.json"
+#     backup: yes
+#     mode: '0660'
+#   when: not settings_result.stat.exists

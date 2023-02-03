@@ -12,10 +12,10 @@
     - kubectl
     - terraform
     - imagemagick
-    - i3
+    # - i3
     - redshift
     - steam
     - guake
     - postman
-    - rust
+    # - rust
     - lazygit
